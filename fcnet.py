@@ -55,4 +55,5 @@ class netC1(nn.Module):
         tc = self.trunk(input)
         ce = self.head(tc)
         print (tc.shape, ce.shape)
+        print ('\n')
         return tc, ce
