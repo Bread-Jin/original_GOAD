@@ -49,8 +49,10 @@ class netC1(nn.Module):
         nn.LeakyReLU(0.2, inplace=True),
         nn.Conv1d(ndf, nc, kernel_size=1, bias=True),
         )
+        print (d,ndf,nc)
 
     def forward(self, input):
         tc = self.trunk(input)
         ce = self.head(tc)
+        print (tc.shape, ce.shape)
         return tc, ce
