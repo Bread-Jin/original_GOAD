@@ -60,7 +60,7 @@ class TransClassifierTabular():
                     train_labels = torch.arange(self.n_rots).unsqueeze(0).expand((len(train_xs) - i, self.n_rots)).long().cuda()
                 idx = np.arange(batch_range) + i
                 xs = torch.from_numpy(train_xs[rp[idx]]).float().cuda()
-                print (xs.shape)
+                #print (xs.shape)
                 tc_zs, ce_zs = self.netC(xs)
                 sum_zs = sum_zs + tc_zs.mean(0)
                 tc_zs = tc_zs.permute(0, 2, 1)
