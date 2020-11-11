@@ -45,6 +45,10 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     print("Dataset: ", args.dataset)
+    start = torch.cuda.Event(enable_timing=True)
+    end = torch.cuda.Event(enable_timing=True)
+
+    start.record()
 
     if args.dataset == 'thyroid' or args.dataset == 'arrhythmia':
         n_iters = args.n_iters
@@ -52,5 +56,10 @@ if __name__ == '__main__':
         for i in range(n_iters):
             f_scores[i] = train_anomaly_detector(args)
         print("AVG f1_score", f_scores.mean())
+        # whatever you are timing goes here
+        end.record()
+        # Waits for everything to finish running
+        torch.cuda.synchronize()
+        print(start.elapsed_time(end))  # milliseconds
     else:
         train_anomaly_detector(args)
