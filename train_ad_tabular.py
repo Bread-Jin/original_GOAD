@@ -2,6 +2,8 @@ import numpy as np
 from data_loader import Data_Loader
 import opt_tc_tabular as tc
 import argparse
+import torch
+
 
 def load_trans_data(args):
     dl = Data_Loader()
