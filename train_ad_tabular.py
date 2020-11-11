@@ -44,7 +44,8 @@ if __name__ == '__main__':
     parser.add_argument('--m', default=1, type=float)
     parser.add_argument('--lmbda', default=0.1, type=float)
     parser.add_argument('--eps', default=0, type=float)
-    parser.add_argument('--n_iters', default=500, type=int)
+    parser.add_argument('--n_iters', default=1000, type=int)
+#original code:    parser.add_argument('--n_iters', default=500, type=int)
 
     args = parser.parse_args()
     print("Dataset: ", args.dataset)
