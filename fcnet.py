@@ -44,12 +44,12 @@ class netC1(nn.Module):
         super(netC1, self).__init__()
         self.trunk = nn.Sequential(
         nn.Conv1d(d, ndf, kernel_size=1, bias=False),
-        nn.LeakyReLU(0.2, inplace=True),
+        nn.LeakyReLU(0.2),
         nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
-        nn.LeakyReLU(0.2, inplace=True),
+        nn.LeakyReLU(0.2),
         )
         self.head = nn.Sequential(
-        nn.LeakyReLU(0.2, inplace=True),
+        nn.LeakyReLU(0.2),
         nn.Conv1d(ndf, nc, kernel_size=1, bias=True),
         )
 #        print (d,ndf,nc)
