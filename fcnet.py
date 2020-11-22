@@ -1,6 +1,7 @@
 import torch.nn as nn
 import torch.nn.init as init
 import numpy as np
+import torch.nn.functional as F
 
 def weights_init(m):
     classname = m.__class__.__name__
@@ -44,13 +45,14 @@ class netC1(nn.Module):
         super(netC1, self).__init__()
         self.trunk = nn.Sequential(
         nn.Conv1d(d, ndf, kernel_size=1, bias=False),
+        nn.MaxPool1d(3, stride=2)
         nn.LeakyReLU(0.2),
-        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
-        nn.LeakyReLU(0.2),
-        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
-        nn.LeakyReLU(0.2),
-        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
-        nn.LeakyReLU(0.2),
+#        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
+#        nn.LeakyReLU(0.2),
+#        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
+#        nn.LeakyReLU(0.2),
+#        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
+#        nn.LeakyReLU(0.2),
 # HERE. NUMBER 4
 #        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
 #        nn.LeakyReLU(0.2),
