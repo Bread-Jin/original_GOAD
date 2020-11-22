@@ -51,6 +51,16 @@ class netC1(nn.Module):
         nn.LeakyReLU(0.2),
         nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
         nn.LeakyReLU(0.2),
+# HERE. NUMBER 4
+        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
+        nn.LeakyReLU(0.2),
+        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
+        nn.LeakyReLU(0.2),
+        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
+        nn.LeakyReLU(0.2),
+        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
+        nn.LeakyReLU(0.2),
+# HERE. NUMBER 8
         )
         self.head = nn.Sequential(
         nn.LeakyReLU(0.2),
