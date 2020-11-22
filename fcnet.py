@@ -44,7 +44,8 @@ class netC1(nn.Module):
     def __init__(self, d, ndf, nc):
         super(netC1, self).__init__()
         self.trunk = nn.Sequential(
-        F.MaxPool1d(nn.Conv1d(d, ndf, kernel_size=1, bias=False), 3, 1, padding = 'valid'),
+        nn.Conv1d(d, ndf, kernel_size=1, bias=False),
+        nn.BatchNorm1d(ndf),
         nn.LeakyReLU(0.2),
 #        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
 #        nn.LeakyReLU(0.2),
