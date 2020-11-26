@@ -47,6 +47,10 @@ class netC1(nn.Module):
         nn.Conv1d(d, ndf, kernel_size=1, bias=False),
         nn.LeakyReLU(0.2),
         nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
+        nn.LeakyReLU(0.2),
+        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
+        nn.LeakyReLU(0.2),
+        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
 #       Below line is for the BN process
 #        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
 #        nn.BatchNorm1d(ndf),
